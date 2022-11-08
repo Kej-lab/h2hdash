@@ -52,7 +52,7 @@ function PhotoCarouselView(props) {
     useEffect(() => {
         startSlideTimer();
           return () => stopSlideTimer() // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
-      }, [])
+      }, [props.files])
 
     //NOTE as REFERENCE useEffect below: Every 3 seconds slide will change (through the index) if it's less than slides length, if false reverts to first image
     // NOTE: Without transiton on carousel-inner div, image flashes/changes one by one
@@ -72,7 +72,7 @@ function PhotoCarouselView(props) {
                 <div 
                 className="hcarousel-inner"
                 style={{ transform: `translateX(${-currentSlide * 100}%)`, maxHeight : props.height }}>
-                        {files.map((file, index) => (
+                        {props.files.map((file, index) => (
                                 <CarouselItem 
                                 file={file} 
                                 key={index}
@@ -83,7 +83,7 @@ function PhotoCarouselView(props) {
                 </div>
 
                 {props.indicators && <CarouselIndicators
-                files={files}
+                files={props.files}
                 currentIndex={currentSlide}
                 switchIndexCb = {switchIndex}
                 />}

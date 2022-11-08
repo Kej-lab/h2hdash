@@ -1,15 +1,19 @@
 .App {
   text-align: center;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Montserrat Alternates', sans-serif;
   background-color: #FAF7F0;
 }
 
 .col-sm-6 {
   border: solid 2px azure;
   border-radius: 1em;
-  background-color: #BCCEF8 ; /* #BCCEF8 #C0EBE9 */
+  background-color: #BCCEF8 ; 
+  /* #BCCEF8 #C0EBE9 */
+  
   /* margin: 5px 5px 5px 5px; */
+  
 }
+
 
 /* .gridsection .timeweather {
   height: 300px;

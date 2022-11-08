@@ -1,0 +1,17 @@
+.vote-chart{
+    width: 450px;
+    margin-top: 6px;
+    margin-left: 60px;
+}
+
+.votebox button{
+    width: 100px;
+    height: 30px;
+    margin: 20px;
+    margin-top: 50px;
+    font-weight: 600;
+    font-family: 'Montserrat Alternates', sans-serif;
+    box-shadow: #9a75c8 0 5px 50px 5px;
+    /* font-family: 'Tajawal', sans-serif; */
+}
+

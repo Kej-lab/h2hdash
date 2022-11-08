@@ -4,16 +4,20 @@ import TimeWeatherView from "./views/TimeWeatherView";
 import NotesView from "./views/NotesView";
 import LuckGameView from "./views/LuckGameView";
 import PhotoCarouselView from "./views/PhotoCarouselView"
+import Voting from "./views/Voting";
 
 const API_KEY = "95e5614d843306eba8cca48f943be4f3";
 const TIME_API_KEY="b9320ebff64a4f69aa48f65296c8a20a";
 
-export default function App() {
+export default function App(props) {
   const [cities, setCities] = useState([]);
   const [compile, setCompile] = useState([]);
   const [error, setError] = useState("");
   const [notes, setNotes] = useState([]);
   const [files, setFiles] = useState([]);
+  // const [country, setCountry] = useState("");
+  // const [pic, setPic] = useState(false);
+
 
 
   function getCities(city) { // city parameter received from CityField component
@@ -212,6 +216,43 @@ async function uploadFile(formData) {
     }
 }
 
+async function deleteFile(id) {
+ 
+  let options = {
+    method: "DELETE"
+  };
+
+  try {
+    let response = await fetch(`/files/${id}`, options);
+    if (response.ok) {
+      let image = await response.json(); 
+      setFiles(image);
+    } else {
+      console.log(`Server error: ${response.status} ${response.statusText}`);
+    }
+  } catch (err) {
+    console.log(`Network error: ${err.message}`);
+  }
+}
+
+// async function getCountry() {
+//   try {
+//     let response = await fetch("/countries");
+//     if (response.ok) {
+//       let data = await response.json(); 
+//       let result = data[Math.floor(Math.random() * 251)]
+//       console.log(result)
+//       setCountry(result);
+//       handleChangeView();
+//     } else {
+//       console.log(`Server error: ${response.status} ${response.statusText}`);
+//     }
+//   } catch (err) {
+//     console.log(`Network error: ${err.message}`);
+//   }
+// }
+
+
   return (
     <div className="App">
       <div>
@@ -249,13 +290,29 @@ async function uploadFile(formData) {
             autoPlay={true}
             width="600px"
             height="300px"
-            uploadCb={fd => uploadFile(fd)} // send uploadCb to UploadForm child and receive formData input
-            />
+            uploadCb={fd => uploadFile(fd)} 
+            // send uploadCb to UploadForm child and receive formData input
+            /> 
+
+            {files.map(f => (
+              <ul>
+                <li>
+                  {f.filename}
+                  <button onClick ={(e)=>deleteFile(f.id)}type="button">x</button>
+                </li>
+              </ul>
+            ))}
+
           
           </div>
 
           <div className="col-sm-6">
-          <LuckGameView />
+        <div className="box2">
+          
+          <LuckGameView/>
+
+        </div>
+          
           </div>
 
         </div> {/* row end of div */}

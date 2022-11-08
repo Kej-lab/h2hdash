@@ -8,15 +8,21 @@
 } */
 
 .LuckGameView .lucky img {
-    height: 275px;
-    margin-top: 20px;
+    height: 230px;
+    width:230px;
+    margin-top: 132px;
+    margin-right: 8px;
     margin-bottom: 20px;
+    border-radius: 310px;
 }
 
 .LuckGameView .country {
-    margin-top: 50px;
+    margin-top: 132px;
     margin-bottom: 20px;
-    height: 250px;
+    margin-left: 154px;
+    height: 230px;
+    width: 230px;
+    border-radius: 310px;
     background-image: url("https://media1.giphy.com/media/26tOZ42Mg6pbTUPHW/giphy.gif?cid=ecf05e47a9s6x37x2q2wlsxbq0y4su6n0dhx1wegqdpi0v9b&rid=giphy.gif&ct=g");
     background-repeat: no-repeat;
     background-position: center;
@@ -24,35 +30,75 @@
     position: relative;
     text-align: center;
     flex-wrap: wrap;
+    cursor: pointer;
+    
 }
 
-.LuckGameView .country .countrytext {
+.LuckGameView .countrytext {
     height: 300px;
     font-size: 100px;
     color: white;
     position: absolute;
-    top: 90%;
+    top: 100%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 6vh;
+    font-size: 5vh;
     line-height: 6vh;
     max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     max-height: 300px;
+    font-weight:900;
+    font-style: oblique;
+    font-family: 'Montserrat Alternates', sans-serif;
+    text-shadow:  #FC0 1px 0 10px;
 }
 
 .LuckGameView button {
     border-radius: 10px;
-    border-color: azure;
-    width: 200px;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    width: 250px;
     font-size: small;
-    margin-top: 5px;
     height: 25px;
+    margin-top: 20px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 600;
+    box-shadow: #9568cb 0 5px 30px 5px;
 }
 
 .LuckGameView button:hover {
-    background-color: #C1A5E3;
+    background-color: #b592e0;
     cursor: pointer;
+    color: rgb(251, 251, 251);
 }
+
+.LuckGameView{
+
+  display: grid;
+  margin-left: 20px;
+}
+
+.box{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.box1, .box{
+  grid-area: 2/1;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
