@@ -73,6 +73,28 @@ router.post('/', upload.single('clientfile'), async function(req, res) {
   }
 });
 
+router.delete("/:id", async (req, res) => {
+  let id = req.params.id;
+
+  try {
+    let result = await db(`SELECT * FROM files where id = ${id}`);
+    if (result.data.length === 0) {
+      res.status(404).send({ error: "Image not found" });
+    } else {
+      let sql = `DELETE FROM files WHERE id = ${id}`;
+
+      await db(sql);
+
+      let result = await db("SELECT * FROM files");
+      // need to request all items, if not will return deleted object
+      let image = result.data;
+      res.send(image); // return updated array
+    }
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+});
+
 
 
 // // "npm install uuid" to create unique filenames

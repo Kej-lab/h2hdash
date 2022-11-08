@@ -10,6 +10,8 @@ var indexRouter = require('./routes/index');
 var notesRouter = require('./routes/notes');
 // create router for files
 var filesRouter = require("./routes/files");
+var voteRouter = require('./routes/vote');
+var countriesRouter = require('./routes/countries');
 
 var app = express();
 
@@ -39,5 +41,7 @@ app.use('/', indexRouter);
 app.use('/notes', notesRouter);
 // need to use files router
 app.use('/files', filesRouter);
+app.use('/vote', voteRouter);
+app.use('/countries', countriesRouter);
 
 module.exports = app;
